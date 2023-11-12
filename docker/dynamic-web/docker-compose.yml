@@ -2,6 +2,7 @@ version: '3.1'
 
 services:
   web:
+    build: ./frontend
     container_name: web
     image: frontend:latest
     restart: always
@@ -11,14 +12,7 @@ services:
       - backend_db
   
   backend_db:
-    image: backend:latest
+    build: ./backend
+    container_name: database
     restart: always
   
-  sample:
-    build: ./frontend
-    container_name: sample
-    restart: always
-    ports:
-      - 9000:80
-    depends_on:
-      - backend_db
