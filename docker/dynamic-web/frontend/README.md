@@ -1,0 +1,4 @@
+# AWS Scenerio
+- Frontend server 
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.html
+
