@@ -11,4 +11,6 @@ services:
   db:
     build: ./backend
     restart: always
+    volumes:
+      - "./db:/docker-entrypoint-initdb.d" # Sync persistent sql file with container.
     
