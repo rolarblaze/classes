@@ -1,0 +1,9 @@
+kind: the kind of deployment, it could be a service, pod, deployment etc. 
+
+Kubernetes API version and resource type (deployment)
+
+Metadata about the Deployment 
+
+The selector is used to "select" the template to use (based on labels) 
+
+Template to use to create the Pod/Containers (note that the selector matches the label)

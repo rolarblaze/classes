@@ -1,0 +1,11 @@
+emptyDir - Empty directory for storing "transient" data (shares a Pod's lifetime) useful for sharing files between containers running in a pod
+
+HostPath - Pod mounts into the node's filesystem 
+
+nfs - an NFS (Network File System) share mounted into the pod 
+
+configMap/secret - Special types of volumes that provide a Pod with access to Kubernetes resources. 
+
+PersistentVolumeClaim - Provides Pods with a more persistent storage option that is abstracted from the details
+
+Cloud - Cluster-wide-storage 

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx 
+  template:
+    metadata:
+      labels:
+        app: ningx
+    spec:
+      containers:
+      - name: nginx 
+        image: nginx:alpine
+        volumeMounts: 
+          - name: nginx 
+            mountPath: /usr/share/nginx/html 
+            readOnly: true
+        resources: 
+      - name: html-updater 
+        image: alpine 
+        command: ["/bin/sh", "-c"]
+        args: 
+          - while true; do date >> /html/index.html; sleep 10; done 
+        resources: 
+        volumeMounts: 
+          - name: html 
+            mountPath: /html/index.html  
+      volumes: 
+        - name: nginx 
+          emptyDir: {} 

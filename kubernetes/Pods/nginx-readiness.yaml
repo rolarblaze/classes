@@ -1,0 +1,26 @@
+apiVersion: apps/v1 
+kind: Pod 
+metadata: 
+  name: nginx-pod 
+spec:
+  containers:
+  - name: nginx-pod
+    image: nginx-latest 
+    ports: 
+    - containerPort: 80 
+    livenessProbe: 
+      httpGet: 
+        path: /inedx.html 
+        port: 80 
+      initialDelayseconds: 15 
+      timeoutSeconds: 2
+      periodSeconds: 5 
+      failureThreshold: 1 
+    readinessProbe: 
+      httpGet: 
+        path: /index.html 
+        port: 80 
+      initialDelayseconds: 3
+      periodSeconds: 5
+      failureThreshold: 1
+

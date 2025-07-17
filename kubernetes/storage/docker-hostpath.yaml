@@ -1,0 +1,26 @@
+apiVersion: apps/v1 
+kind: Pod 
+metadata: 
+  name: docker-volume
+spec:
+  containers:
+  - name: docker
+    image: docker 
+    command: ["sleep"]
+    args: ["100000"]
+    volumeMounts:
+    - name: docker-socket 
+      mountPath: /var/run/docker.sock 
+    resources: 
+  volumes:
+  - name: docker-socket
+    hostPath:
+      path: /var/run/docker.sock 
+      type: socket 
+      # This allows the container to communicate with the Docker daemon on the host
+      # by mounting the Docker socket into the container.
+      # This is useful for running Docker commands from within the container.
+      # Ensure that the container has the necessary permissions to access the Docker socket.
+      # Be cautious with this as it can pose security risks.
+      # The container can now run Docker commands as if it were running on the host.
+      # This is often used in CI/CD pipelines or for managing Docker containers from within a container
